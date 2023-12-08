@@ -1,4 +1,5 @@
-import React from 'react';
+// import React from 'react';
+import "./AppliedJobs.css";
 
 const AppliedJobs = () => {
   return (
