@@ -23,19 +23,17 @@ const Job = (pros) => {
           height: "52px",
         }}
       />
-      <p>{job_title}</p>
+      <p className=" font-bold text-lg">{job_title}</p>
       <p>{company_name}</p>
       <div
         style={{ display: "flex" }}
-        className="job_type text-sm font-semibold"
+        className="job_type text-sm font-semibold mt-2"
       >
         <p>{remote_or_onsite}</p>
         <p>{job_type}</p>
       </div>
-      <div className="loc_salary flex py-2">
-        <p>{location}</p>
-        <p>Salary: {salary}</p>
-      </div>
+      <p className="my-2">{location}</p>
+      <p className="my-2">Salary: {salary}</p>
       <Link to="/">
         <button className="bg-gradient-to-r from-violet-400 to-violet-500 text-white py-2 px-4 rounded">
           View Details

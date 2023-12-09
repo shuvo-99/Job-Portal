@@ -12,6 +12,7 @@ const Header = ({ headerColor }) => {
         <Link to="/">Job Portal</Link>
       </div>
       <div className=" me-5">
+        <Link to="/">Home</Link>
         <Link to="/explore_jobs">Explore Jobs</Link>
         <Link to="/applied_jobs">Applied Jobs</Link>
       </div>

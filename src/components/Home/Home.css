@@ -13,3 +13,9 @@
 .columns-3 {
   grid-template-columns: repeat(3, 1fr);
 }
+
+.see-more-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

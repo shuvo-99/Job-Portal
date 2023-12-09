@@ -1,13 +1,20 @@
 // import React from 'react';
+import { useLoaderData } from "react-router-dom";
 import Header from "../Header/Header";
 import "./ExploreJobs.css";
+import Job from "../Job/Job";
 
 const ExploreJobs = () => {
-  const headerColor = "#e5e7eb";
+  // const headerColor = "#e5e7eb";
+  const headerColor = "#aec0e3";
 
   const containerStyle = {
-    backgroundColor: "#e5e7eb",
+    backgroundColor: "#aec0e3",
   };
+
+  const { jobs } = useLoaderData();
+
+  console.log(jobs);
 
   return (
     <div>
@@ -18,7 +25,13 @@ const ExploreJobs = () => {
       >
         <p>Explore Jobs</p>
       </section>
-      <section></section>
+      <section className="my-20 mx-10">
+        <div className="explore_jobs">
+          {jobs.map((job) => (
+            <Job key={job.id} job={job}></Job>
+          ))}
+        </div>
+      </section>
     </div>
   );
 };

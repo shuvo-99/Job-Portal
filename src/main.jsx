@@ -23,11 +23,12 @@ const router = createBrowserRouter([
           const { categories } = await loadCategoriesData();
           const { jobs } = await loadJobsData();
           return { categories, jobs };
-        }
+        },
       },
       {
         path: "/explore_jobs",
         element: <ExploreJobs></ExploreJobs>,
+        loader: loadJobsData,
       },
       {
         path: "/applied_jobs",

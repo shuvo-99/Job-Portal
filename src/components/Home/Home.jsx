@@ -89,13 +89,15 @@ const Home = () => {
           {jobs.slice(0, visibleElements).map((job) => (
             <Job key={job.id} job={job}></Job>
           ))}
+        </div>
+        <div className="see-more-btn py-10">
           {visibleElements < jobs.length && (
             <Link to="/explore_jobs">
               <button
                 onClick={handleSeeMoreClick}
-                className="see_more_button text-center"
+                className="bg-gradient-to-r from-violet-400 to-violet-500 text-white py-2 px-4 rounded"
               >
-                See More
+                See All Jobs
               </button>
             </Link>
           )}
