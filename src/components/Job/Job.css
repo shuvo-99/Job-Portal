@@ -1,0 +1,17 @@
+.job_type p {
+  padding: 5px;
+  border: 1px solid #d8cef0;
+  border-radius: 4px;
+  margin-right: 5px;
+  color: #8b5cf6;
+}
+
+.loc_salary p {
+  margin-right: 10px;
+}
+
+.job {
+  border: 1px solid #cfc9dd;
+  border-radius: 4px;
+  padding: 20px 40px;
+}

@@ -3,6 +3,9 @@ import { Link, useLoaderData } from "react-router-dom";
 import "./Home.css";
 import Header from "../Header/Header";
 import Category from "../Category/Category";
+import ExploreJobs from "../ExploreJobs/ExploreJobs";
+import Job from "../Job/Job";
+import { useState } from "react";
 
 const Home = () => {
   const headerColor = "#e5e7eb";
@@ -12,8 +15,15 @@ const Home = () => {
   };
 
   const { categories, jobs } = useLoaderData();
-  console.log(categories);
-  console.log(jobs);
+
+  const [columns, setColumns] = useState(2);
+
+  const [visibleElements, setVisibleElements] = useState(4);
+
+  const handleSeeMoreClick = () => {
+    setVisibleElements(jobs.length);
+    setColumns(columns === 2 ? 3 : 2);
+  };
 
   return (
     <div>
@@ -64,6 +74,7 @@ const Home = () => {
         </div>
       </section>
       <br />
+      {/* Jobs */}
       <section className="m-5">
         <div className="text-center">
           <p className="text-2xl font-bold">Featured Jobs</p>
@@ -73,7 +84,22 @@ const Home = () => {
             need. Its your future
           </p>
         </div>
-        <div></div>
+        <br />
+        <div className={`element_list columns-${columns}`}>
+          {jobs.slice(0, visibleElements).map((job) => (
+            <Job key={job.id} job={job}></Job>
+          ))}
+          {visibleElements < jobs.length && (
+            <Link to="/explore_jobs">
+              <button
+                onClick={handleSeeMoreClick}
+                className="see_more_button text-center"
+              >
+                See More
+              </button>
+            </Link>
+          )}
+        </div>
       </section>
     </div>
   );
