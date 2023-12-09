@@ -2,9 +2,12 @@
 import { Link } from "react-router-dom";
 import "./Header.css";
 
-const Header = () => {
+const Header = ({ headerColor }) => {
+  const headerStyle = {
+    backgroundColor: headerColor,
+  };
   return (
-    <div className="header m-5">
+    <div className="header p-5" style={headerStyle}>
       <div>
         <Link to="/">Job Portal</Link>
       </div>
@@ -14,7 +17,7 @@ const Header = () => {
       </div>
       <div>
         <Link to="/Login">
-          <button className="bg-blue-500 text-white py-2 px-4 rounded">
+          <button className="bg-gradient-to-r from-violet-400 to-violet-500 text-white py-2 px-4 rounded">
             Login
           </button>
         </Link>
