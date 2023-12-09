@@ -14,9 +14,15 @@ const Header = ({ headerColor }) => {
         </Link>
       </div>
       <div className=" me-5">
-        <Link to="/">Home</Link>
-        <Link to="/explore_jobs">Explore Jobs</Link>
-        <Link to="/applied_jobs">Applied Jobs</Link>
+        <Link to="/" className=" text-xl font-semibold">
+          Home
+        </Link>
+        <Link to="/explore_jobs" className=" text-xl font-semibold">
+          Explore Jobs
+        </Link>
+        <Link to="/applied_jobs" className=" text-xl font-semibold">
+          Applied Jobs
+        </Link>
       </div>
       <div>
         <Link to="/Login">
