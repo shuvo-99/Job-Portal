@@ -1,7 +1,8 @@
 // import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import "./Home.css";
 import Header from "../Header/Header";
+import Category from "../Category/Category";
 
 const Home = () => {
   const headerColor = "#e5e7eb";
@@ -10,9 +11,15 @@ const Home = () => {
     backgroundColor: "#e5e7eb",
   };
 
+  const { categories, jobs } = useLoaderData();
+  console.log(categories);
+  console.log(jobs);
+
   return (
     <div>
       <Header headerColor={headerColor}></Header>
+
+      {/* first part */}
       <div
         className=" grid grid-rows-5 grid-cols-2 gap-4 px-5"
         style={containerStyle}
@@ -36,6 +43,38 @@ const Home = () => {
           </Link>
         </div>
       </div>
+
+      {/* middle part */}
+      <br />
+      <section className="m-5 ">
+        <div className="text-center">
+          <p className="text-2xl font-bold">Job Category List</p>
+          <br />
+          <p>
+            Explore thousands of job opportunities with all the information you
+            need. Its your future
+          </p>
+        </div>
+        <br />
+        {/* Category */}
+        <div className="category_container">
+          {categories.map((category) => (
+            <Category key={category.id} category={category}></Category>
+          ))}
+        </div>
+      </section>
+      <br />
+      <section className="m-5">
+        <div className="text-center">
+          <p className="text-2xl font-bold">Featured Jobs</p>
+          <br />
+          <p>
+            Explore thousands of job opportunities with all the information you
+            need. Its your future
+          </p>
+        </div>
+        <div></div>
+      </section>
     </div>
   );
 };

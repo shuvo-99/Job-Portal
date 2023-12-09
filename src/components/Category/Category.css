@@ -1,0 +1,9 @@
+.category img {
+  width: 50px;
+  height: 5opx;
+}
+
+.category {
+  background-color: #eff1f3;
+  border-radius: 4px;
+}

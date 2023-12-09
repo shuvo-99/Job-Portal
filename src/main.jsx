@@ -9,6 +9,7 @@ import ExploreJobs from "./components/ExploreJobs/ExploreJobs.jsx";
 import AppliedJobs from "./components/AppliedJobs/AppliedJobs.jsx";
 import Login from "./components/Login/Login.jsx";
 import ErrorPage from "./components/ErrorPage/ErrorPage.jsx";
+import { loadCategoriesData, loadJobsData } from "./LoadData/LoadData.js";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,11 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader: async () => {
+          const { categories } = await loadCategoriesData();
+          const { jobs } = await loadJobsData();
+          return { categories, jobs };
+        }
       },
       {
         path: "/explore_jobs",
