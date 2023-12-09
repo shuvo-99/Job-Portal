@@ -1,4 +1,4 @@
-.login {
+.error {
   width: 400px;
   border: 1px solid blueviolet;
   border-radius: 8px;
@@ -10,7 +10,7 @@
   margin-top: 20px;
 }
 
-.login p {
+.error p {
   text-align: center;
   font-weight: 700;
   font-size: x-large;
