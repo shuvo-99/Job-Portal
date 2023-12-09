@@ -9,7 +9,9 @@ const Header = ({ headerColor }) => {
   return (
     <div className="header p-5" style={headerStyle}>
       <div>
-        <Link to="/">Job Portal</Link>
+        <Link to="/" className=" text-3xl font-bold">
+          Job Portal
+        </Link>
       </div>
       <div className=" me-5">
         <Link to="/">Home</Link>

@@ -20,6 +20,10 @@
   width: 100%;
 }
 
+.undo_apply_btn {
+  width: 100%;
+}
+
 .rightSide_details {
   border-radius: 4px;
 }

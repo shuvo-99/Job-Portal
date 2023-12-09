@@ -1,9 +1,9 @@
 import "./Category.css";
 
 const Category = (pros) => {
-  console.log(pros);
+  // console.log(pros);
   const { logo, category_name, availability } = pros.category;
-  console.log(category_name);
+  // console.log(category_name);
   return (
     <div className="category p-5">
       <img

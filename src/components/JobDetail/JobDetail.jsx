@@ -2,12 +2,33 @@ import { useParams } from "react-router-dom";
 import Header from "../Header/Header";
 import "./JobDetail.css";
 import { useEffect, useState } from "react";
+import {
+  addToDb,
+  getApplicationCart,
+  removeFromDb,
+} from "../../LocalStorage/LocalStorage";
 
 const JobDetail = () => {
   const { jobID } = useParams();
-  console.log(jobID);
+  // console.log(jobID);
 
+  // FOR DATA
   const [details, setDetails] = useState([]);
+
+  // FOR BUTTON STATE
+  const [applied, setApplied] = useState(false);
+
+  const handleApply = (jobID) => {
+    addToDb(jobID);
+    console.log("applied ->", jobID);
+    setApplied(true);
+  };
+
+  const handleUndoApply = (jobID) => {
+    removeFromDb(jobID);
+    console.log("undo applied ->", jobID);
+    setApplied(false);
+  };
 
   useEffect(() => {
     // Fetch specific element details using the 'id' parameter
@@ -20,9 +41,16 @@ const JobDetail = () => {
         );
         setDetails(elementDetails);
       });
+    // Parse the storedCart into an object
+    const storedCart = getApplicationCart();
+    const isApplied = Object.keys(storedCart).includes(jobID.toString());
+    setApplied(isApplied);
   }, [jobID]); // Re-fetch details whenever 'id' changes
 
-  console.log(details);
+  // console.log(details);
+
+  // const { phone, email, address } = details.contact_information;
+  // console.log(phone);
 
   // const headerColor = "#aec0e3";
   const headerColor = "#ccd1db";
@@ -71,7 +99,7 @@ const JobDetail = () => {
                 </p>
                 <p>
                   <span className=" font-semibold">Job Title : </span>
-                  {details.title}
+                  {details.job_title}
                 </p>
               </div>
               <div>
@@ -80,22 +108,34 @@ const JobDetail = () => {
               <div>
                 <p>
                   <span className=" font-semibold">Phone : </span>
-                  {details.contact_information.phone}
+                  {/* {phone} */}
                 </p>
                 <p>
                   <span className=" font-semibold">Email : </span>
-                  {details.contact_information.email}
+                  {/* {email} */}
                 </p>
                 <p>
                   <span className=" font-semibold">Address : </span>
-                  {details.contact_information.address}
+                  {/* {address} */}
                 </p>
               </div>
             </div>
             <div>
-              <button className="apply_btn bg-gradient-to-r from-violet-500 to-violet-600 text-white py-2 px-4 rounded ">
-                Apply Now
-              </button>
+              {applied ? (
+                <button
+                  className="undo_apply_btn bg-gradient-to-r from-red-500 to-red-600 text-white py-2 px-4 rounded"
+                  onClick={() => handleUndoApply(jobID)}
+                >
+                  Undo Apply
+                </button>
+              ) : (
+                <button
+                  className="apply_btn bg-gradient-to-r from-violet-500 to-violet-600 text-white py-2 px-4 rounded"
+                  onClick={() => handleApply(jobID)}
+                >
+                  Apply Now
+                </button>
+              )}
             </div>
           </div>
         </div>

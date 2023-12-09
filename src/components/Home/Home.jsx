@@ -3,7 +3,7 @@ import { Link, useLoaderData } from "react-router-dom";
 import "./Home.css";
 import Header from "../Header/Header";
 import Category from "../Category/Category";
-import ExploreJobs from "../ExploreJobs/ExploreJobs";
+// import ExploreJobs from "../ExploreJobs/ExploreJobs";
 import Job from "../Job/Job";
 import { useState } from "react";
 

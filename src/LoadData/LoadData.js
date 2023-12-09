@@ -8,7 +8,7 @@ const loadCategoriesData = async () => {
 const loadJobsData = async () => {
   const loadedJobsData = await fetch("../../public/jobs.json");
   const jobs = await loadedJobsData.json();
-  console.log(jobs);
+  // console.log(jobs);
   return { jobs };
 };
 

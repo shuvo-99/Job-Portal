@@ -1,0 +1,24 @@
+.items {
+  width: 800px;
+  border: 1px solid blueviolet;
+  border-radius: 8px;
+  /* margin-bottom: 25px; */
+  padding: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.items img {
+  width: 129px;
+  height: 100px;
+  border-radius: 6px;
+  background-color: rgb(231, 233, 233);
+}
+
+.items_detail p {
+  padding-bottom: 5px;
+}
+
+.items_detail {
+  flex-grow: 1;
+}
