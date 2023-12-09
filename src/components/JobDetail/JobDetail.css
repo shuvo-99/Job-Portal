@@ -1,0 +1,37 @@
+.detail_container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.leftSide {
+  grid-column-start: span 2;
+}
+
+.leftSide p {
+  /* margin-top: 10px; */
+  margin-bottom: 20px;
+}
+
+.rightSide {
+}
+
+.apply_btn {
+  width: 100%;
+}
+
+.rightSide_details {
+  border-radius: 4px;
+}
+
+.rightSide_details div {
+  /* border-bottom: 1px solid rgb(139, 3, 139); */
+  margin-bottom: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.rightSide_details div p {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

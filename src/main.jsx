@@ -10,6 +10,7 @@ import AppliedJobs from "./components/AppliedJobs/AppliedJobs.jsx";
 import Login from "./components/Login/Login.jsx";
 import ErrorPage from "./components/ErrorPage/ErrorPage.jsx";
 import { loadCategoriesData, loadJobsData } from "./LoadData/LoadData.js";
+import JobDetail from "./components/JobDetail/JobDetail.jsx";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
         path: "/explore_jobs",
         element: <ExploreJobs></ExploreJobs>,
         loader: loadJobsData,
+      },
+      {
+        path: "/explore_jobs/:jobID",
+        element: <JobDetail></JobDetail>,
       },
       {
         path: "/applied_jobs",

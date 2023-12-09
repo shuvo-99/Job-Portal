@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import "./Job.css";
+// import { createContext, useState } from "react";
+
+// export const IdValue = createContext(0);
 
 const Job = (pros) => {
   const {
+    id,
     logo,
     job_title,
     company_name,
@@ -11,6 +15,7 @@ const Job = (pros) => {
     location,
     salary,
   } = pros.job;
+
   return (
     <div className="job">
       <img
@@ -34,11 +39,15 @@ const Job = (pros) => {
       </div>
       <p className="my-2">{location}</p>
       <p className="my-2">Salary: {salary}</p>
-      <Link to="/">
-        <button className="bg-gradient-to-r from-violet-400 to-violet-500 text-white py-2 px-4 rounded">
-          View Details
-        </button>
+      {/* <IdValue.Provider value={iD}> */}
+      <Link to={`/explore_jobs/${id}`}>
+        <div>
+          <button className="bg-gradient-to-r from-violet-400 to-violet-500 text-white py-2 px-4 rounded">
+            View Details
+          </button>
+        </div>
       </Link>
+      {/* </IdValue.Provider> */}
     </div>
   );
 };
