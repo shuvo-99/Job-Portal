@@ -8,6 +8,7 @@ import Job from "../Job/Job";
 import { useState } from "react";
 
 const Home = () => {
+  window.scrollTo(0, 0);
   const headerColor = "#e5e7eb";
 
   const containerStyle = {
@@ -85,7 +86,7 @@ const Home = () => {
           </p>
         </div>
         <br />
-        <div className={`element_list columns-${columns}`}>
+        <div className={`element_list columns-${columns} mx-10`}>
           {jobs.slice(0, visibleElements).map((job) => (
             <Job key={job.id} job={job}></Job>
           ))}

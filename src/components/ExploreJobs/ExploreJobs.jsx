@@ -5,6 +5,7 @@ import "./ExploreJobs.css";
 import Job from "../Job/Job";
 
 const ExploreJobs = () => {
+  window.scrollTo(0, 0);
   // const headerColor = "#e5e7eb";
   const headerColor = "#aec0e3";
 

@@ -9,6 +9,7 @@ import {
 } from "../../LocalStorage/LocalStorage";
 
 const JobDetail = () => {
+  window.scrollTo(0, 0);
   const { jobID } = useParams();
   // console.log(jobID);
 
@@ -107,15 +108,16 @@ const JobDetail = () => {
               </div>
               <div>
                 <p>
-                  <span className=" font-semibold">Phone : </span>
+                  <span className=" font-semibold">Phone : </span>017********
                   {/* {phone} */}
                 </p>
                 <p>
-                  <span className=" font-semibold">Email : </span>
+                  <span className=" font-semibold">Email : </span>hr@company.com
                   {/* {email} */}
                 </p>
                 <p>
-                  <span className=" font-semibold">Address : </span>
+                  <span className=" font-semibold">Address : </span>Mohammadpur,
+                  Dhaka
                   {/* {address} */}
                 </p>
               </div>

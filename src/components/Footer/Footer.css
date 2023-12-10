@@ -1,0 +1,30 @@
+.footer li {
+  padding-bottom: 10px;
+}
+
+.company {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.support {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer_lower {
+  display: flex;
+  justify-content: space-between;
+}
