@@ -33,7 +33,7 @@ const JobDetail = () => {
 
   useEffect(() => {
     // Fetch specific element details using the 'id' parameter
-    fetch("../../public/jobs.json")
+    fetch("jobs.json")
       .then((response) => response.json())
       .then((data) => {
         // Find the element in the data array with the matching 'id'

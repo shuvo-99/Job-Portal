@@ -1,7 +1,7 @@
 import { getApplicationCart } from "../LocalStorage/LocalStorage";
 
 const loadAppliedData = async () => {
-  const loadedData = await fetch("../../public/jobs.json");
+  const loadedData = await fetch("jobs.json");
   const jobs = await loadedData.json();
   // step-1: get the stored products from local storage
   const storedCart = getApplicationCart();
