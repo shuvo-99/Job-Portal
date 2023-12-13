@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import Header from "../Header/Header";
 import "./Login.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
+  const { login } = useContext(AuthContext);
   const headerColor = "#b0ef80";
 
   const containerStyle = {
@@ -11,6 +13,23 @@ const Login = () => {
   };
 
   const [show, setShow] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+
+    setError("");
+    login(email, password)
+      .then((result) => {
+        console.log("from login", result.user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+        setError(error.message);
+      });
+  };
 
   return (
     <div>
@@ -22,7 +41,7 @@ const Login = () => {
         <p>Login Page</p>
       </section>
       <div className="login-container">
-        <form>
+        <form onSubmit={handleLogin}>
           <div className="input-container">
             <label>Email</label>
             <input
@@ -64,7 +83,7 @@ const Login = () => {
           {`Forgot Password?`}
           <span> Click Here</span>
         </p>
-        {/* <p style={{ color: "red" }}>{error}</p> */}
+        <p style={{ color: "red", paddingTop: "5px" }}>{error}</p>
       </div>
     </div>
   );
