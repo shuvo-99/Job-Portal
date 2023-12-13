@@ -30,6 +30,12 @@ const Header = ({ headerColor }) => {
             Login
           </button>
         </Link>
+
+        <Link to="/signup">
+          <button className="bg-gradient-to-r from-violet-400 to-violet-500 text-white py-2 px-4 rounded">
+            Sign up
+          </button>
+        </Link>
       </div>
     </div>
   );

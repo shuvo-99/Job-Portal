@@ -12,6 +12,7 @@ import ErrorPage from "./components/ErrorPage/ErrorPage.jsx";
 import { loadCategoriesData, loadJobsData } from "./LoadData/LoadData.js";
 import JobDetail from "./components/JobDetail/JobDetail.jsx";
 import loadAppliedData from "./LoadAppliedData/LoadAppliedData.js";
+import Signup from "./components/Signup/Signup.jsx";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "/Login",
         element: <Login></Login>,
+      },
+      {
+        path: "/signup",
+        element: <Signup></Signup>,
       },
       {
         path: "*",
