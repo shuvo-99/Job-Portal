@@ -14,6 +14,7 @@ import JobDetail from "./components/JobDetail/JobDetail.jsx";
 import loadAppliedData from "./LoadAppliedData/LoadAppliedData.js";
 import Signup from "./components/Signup/Signup.jsx";
 import AuthProvider from "./Provider/AuthProvider.jsx";
+import RedirectError from "./components/RedirectError/RedirectError.jsx";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
         path: "/explore_jobs",
         element: <ExploreJobs></ExploreJobs>,
         loader: loadJobsData,
+        errorElement: <RedirectError />,
       },
       {
         path: "/explore_jobs/:jobID",
@@ -42,14 +44,17 @@ const router = createBrowserRouter([
         path: "/applied_jobs",
         element: <AppliedJobs></AppliedJobs>,
         loader: loadAppliedData,
+        errorElement: <RedirectError />,
       },
       {
         path: "/Login",
         element: <Login></Login>,
+        errorElement: <RedirectError />,
       },
       {
         path: "/signup",
         element: <Signup></Signup>,
+        errorElement: <RedirectError />,
       },
       {
         path: "*",

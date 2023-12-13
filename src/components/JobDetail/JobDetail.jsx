@@ -1,12 +1,13 @@
-import { useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Header from "../Header/Header";
 import "./JobDetail.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {
   addToDb,
   getApplicationCart,
   removeFromDb,
 } from "../../LocalStorage/LocalStorage";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const JobDetail = () => {
   window.scrollTo(0, 0);
@@ -19,16 +20,33 @@ const JobDetail = () => {
   // FOR BUTTON STATE
   const [applied, setApplied] = useState(false);
 
+  const { user } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+
   const handleApply = (jobID) => {
-    addToDb(jobID);
-    console.log("applied ->", jobID);
-    setApplied(true);
+    if (user) {
+      // For checking user present or not. If present apply
+      addToDb(jobID);
+      console.log("applied ->", jobID);
+      setApplied(true);
+    } else {
+      // If not present then redirect to login
+      console.log("not login");
+      navigate("/login", { state: { from: location }, replace: true });
+    }
   };
 
   const handleUndoApply = (jobID) => {
-    removeFromDb(jobID);
-    console.log("undo applied ->", jobID);
-    setApplied(false);
+    if (user) {
+      removeFromDb(jobID);
+      console.log("undo applied ->", jobID);
+      setApplied(false);
+    } else {
+      // If not present then redirect to login
+      console.log("not login");
+      navigate("/login", { state: { from: location }, replace: true });
+    }
   };
 
   useEffect(() => {
@@ -59,6 +77,9 @@ const JobDetail = () => {
   const containerStyle = {
     backgroundColor: "#ccd1db",
   };
+
+  const location = useLocation();
+  console.log(location);
   return (
     <div>
       <Header headerColor={headerColor}></Header>

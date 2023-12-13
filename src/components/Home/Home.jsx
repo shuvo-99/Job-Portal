@@ -37,7 +37,10 @@ const Home = () => {
       >
         <div className=" text-8xl font-semibold">One Step</div>
         <div className=" row-span-5">
-          <img src="./../../../resources/assets/images/user.png" alt="" />
+          <img
+            src="./../../../public/resources/assets/images/user.png"
+            alt=""
+          />
         </div>
         <div className=" text-8xl font-semibold">Closer to Your</div>
         <div className=" text-8xl font-semibold text-violet-400">Dream Job</div>

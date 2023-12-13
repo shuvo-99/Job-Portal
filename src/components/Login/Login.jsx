@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Header from "../Header/Header";
 import "./Login.css";
 import { useContext, useState } from "react";
@@ -15,15 +15,21 @@ const Login = () => {
   const [show, setShow] = useState(false);
   const [error, setError] = useState("");
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const handleLogin = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
 
+    const from = location.state?.from?.pathname || "/"; // redirect to the page from where it came to login page
+
     setError("");
     login(email, password)
       .then((result) => {
         console.log("from login", result.user);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error.message);

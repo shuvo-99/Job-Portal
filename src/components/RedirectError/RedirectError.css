@@ -1,0 +1,17 @@
+.error {
+  width: 400px;
+  border: 1px solid blueviolet;
+  border-radius: 8px;
+  /* margin-bottom: 25px; */
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  /* margin-left: 35%; */
+  margin-top: 20px;
+}
+
+.error p {
+  text-align: center;
+  font-weight: 700;
+  font-size: x-large;
+}

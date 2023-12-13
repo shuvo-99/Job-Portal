@@ -11,9 +11,9 @@ One bug is there i.e if you redirect from view job details page to another route
 - Data is stored in local storage
 - Can apply and undo also
 - Can view applied jobs
+- Login & Sign UP using Firebase Authentification
 
 ## Features - On progess
 
-- Login system
 - Connect with database instead of local storage
 - User type
